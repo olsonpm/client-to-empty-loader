@@ -1,3 +1,5 @@
-module.exports = function clientToEmpty(src) {
-  return src.replace(/require\((?:'|")[^'"]*\/client\/[^'"]*(?:'|").*/g, '{};');
+module.exports = function clientToEmpty(src, srcMap) {
+  src = src.replace(/require\((?:'|")[^'"]*\/client\/[^'"]*(?:'|").*/g, '{};');
+
+  this.callback(null, src, srcMap);
 };
